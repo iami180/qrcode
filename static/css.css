@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root{
+  --bg: #0f1115;
+  --panel: #171a21;
+  --panel-2: #1d2230;
+  --text: #e8ebf1;
+  --muted: #9aa3b2;
+  --brand: #6ea8fe;
+  --brand-2: #4c86f7;
+  --ring: 0 0 0 3px rgba(110,168,254,.25);
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1a2030 0%, transparent 60%),
+    radial-gradient(900px 500px at 110% 110%, #1a2030 0%, transparent 60%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* Kártya a tartalomnak (ha nincs, a form is megkapja ezeket a stílusokat) */
+.card, form {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid #252b3a;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 24px;
+  width: min(680px, 92vw);
+}
+
+/* Cím */
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(22px, 2.8vw, 34px);
+  letter-spacing: .2px;
+  text-align: center;
+  font-weight: 800;
+  background: linear-gradient(90deg, #eaf2ff, #b9ccff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Kisebb segédszöveg */
+label, .hint {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Vízszintes input-sor */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+/* Szövegmező */
+input[type="text"], input[type="url"], input[type="search"] {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #2a3245;
+  background: #111521;
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #64708a;
+}
+
+input[type="text"]:focus {
+  border-color: var(--brand);
+  box-shadow: var(--ring);
+  background: #0f1420;
+}
+
+/* Gomb */
+button, input[type="submit"] {
+  height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .05s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow: 0 6px 18px rgba(78, 131, 255, .35);
+  white-space: nowrap;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  filter: brightness(1.05);
+}
+
+button:active,
+input[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 520px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  button, input[type="submit"] {
+    width: 100%;
+  }
+}
