@@ -120,7 +120,7 @@ button:active,
 input[type="submit"]:active {
   transform: translateY(1px);
 }
-
+ 
 @media (max-width: 520px) {
   .form-row {
     grid-template-columns: 1fr;
